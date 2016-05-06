@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Test hashchange</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<a  href="https://www.baidu.com/baidu?wd=%C8%E7%BA%CE%B7%C3%CE%CAajax%C0%FA%CA%B7&tn=monline_dg" id="baidu">Search How to visit AJAX History</a>
+	<script>
+		var baidu = document.querySelector('#baidu');
+		baidu.addEventListener('click',function(){
+			window.alert(this.getAttribute('href'));
+		},false);
+	</script>
+</body>
+</html>

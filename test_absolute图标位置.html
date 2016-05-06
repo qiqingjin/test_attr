@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test 图标位置</title>
+	<style>
+	   .container{
+      width: 1200px;
+      max-width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      border:1px solid red;
+     }
+     .content{
+      float: right;
+      position: relative;
+      width: 920px;
+      min-height: 1200px;
+      background: #ddd;
+     }
+     .con_boxes{
+      padding: 20px 10px;
+      overflow: hidden;
+     }
+     .boxes{
+      float: left;
+      width: 280px;
+      height: 240px;
+      margin: 5px 10px 15px;
+      border-radius: 0 0 1px 1px;
+      background-color: #F7FAF9;
+      background-color: rgba(255,255,255,1);
+      box-shadow: 0 1px 2px #c5c5c5;
+      text-decoration: none;
+     }
+     .abcenter{
+      height: 0;
+      margin-top: 20px;
+      text-align: center;
+      letter-spacing: -.25em;
+      overflow: hidden;
+     }
+     .center_img{
+      position: absolute;
+      margin-left: -25px;
+      /*display: inline;*/
+     }
+     .abright{
+      height: 0;
+      text-align: right;
+      overflow: hidden;
+     }
+     .right_img{
+      display: inline;
+      position: fixed;
+      margin-left: 20px;
+      bottom: 100px;
+     }
+	</style>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <div class="con_boxes">
+        <div class="boxes">我是盒子</div>
+        <div class="boxes">我是盒子</div>
+        <div class="boxes">我是盒子</div>
+        <div class="boxes">我是盒子</div>
+        <div class="boxes">我是盒子</div>
+        <div class="boxes">我是盒子</div>
+      </div>
+      <div class="abcenter">
+         &nbsp;<img src="P_00.jpg" width="50px" class="center_img"/>
+      </div>
+      <div class="abright">
+        &nbsp;<div class="right_img"><img src="P_01.jpg" width="100px"/></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

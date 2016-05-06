@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test Width</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		.outerdiv{
+			overflow: scroll;
+			border:1px solid #DDD;
+			width:300px;
+			height:300px;
+			margin:100px 50px;
+			font-size: 10pt;
+		}
+		.innerdiv{
+			width:500px;
+			height:500px;
+		}
+	</style>
+</head>
+	
+<body>
+<div class="outerdiv">
+	<div class="innerdiv">
+		BEIJING - A new round of smog is likely to hit Beijing and neighboring regions Saturday night and will stay for at least four days, the local weather bureau said Saturday.
+
+		The smog will reduce visibility to 3 to 5 kilometers Sunday in Beijing, Tianjin and the central and southern parts of Hebei Province, the Beijing municipal meteorological bureau said in a press release.
+
+		The bureau has forecast drizzle on Sunday night and Monday, which may relieve pollution and improve visibility to 6 to 8 kilometers, it said.
+
+		The situation, however, is predicted to worsen on Tuesday and Wednesday, when visibility will be less than 1 kilometer, the document said.
+
+		It said precipitation and strong gales on Wednesday night and Thursday would dispel the pollutant.
+
+		Ministry of Environmental Protection said Friday the dominant pollutant will be PM2.5, particles with a diameter smaller than 2.5 micrometers.
+
+		However, the Beijing weather bureau said this round of smog will not be as serious as the previous, which lasted from Nov. 27 to Dec. 1.
+
+		Beijing Mayor Wang Anshun vowed effective measures to fight air pollution at a meeting Friday night. "We are determined to win the fight against pollution and are subject to the supervision of the citizens and the press," he said.
+
+		He said the city government will watch high polluting sectors closely, including construction sites and outdoor barbecues, and promised to penalize whoever is liable for pollution.
+
+		The recent smog which dissipated on Tuesday prompted the Beijing municipal government to issue its first orange alert, the second-highest level, which means construction sites must stop dust-raising activities while the elderly and the children should stay indoors.
+
+		The notorious air pollution suffered by Beijing and its surrounding areas is caused in large part by vehicle exhaust emissions and coal burning in heavy industries and municipal heating in winter.
+		2
+	</div>
+</div>
+	<script>
+		var eldiv=document.getElementsByClassName("outerdiv")[0];
+		var txdiv=document.getElementsByClassName("innerdiv")[0];
+		console.log('outer div');
+		console.log('clientWidth: '+eldiv.clientWidth);
+		console.log('offsetWidth: '+eldiv.offsetWidth);
+		console.log('scrollWidth: '+eldiv.scrollWidth);
+		console.log('clientTop: '+eldiv.clientTop);
+		console.log('offsetTop: '+eldiv.offsetTop);
+		console.log('scrollTop: '+eldiv.scrollTop);
+		console.log('clientLeft: '+eldiv.clientLeft);
+		console.log('offsetLeft: '+eldiv.offsetLeft);
+		console.log('scrollLeft: '+eldiv.scrollLeft);
+		console.log('inner div');
+		console.log('clientWidth: '+txdiv.clientWidth);
+		console.log('offsetWidth: '+txdiv.offsetWidth);
+		console.log('scrollWidth: '+txdiv.scrollWidth);
+		console.log('clientTop: '+txdiv.clientTop);
+		console.log('offsetTop: '+txdiv.offsetTop);
+		console.log('scrollTop: '+txdiv.scrollTop);
+		console.log('clientLeft: '+txdiv.clientLeft);
+		console.log('offsetLeft: '+txdiv.offsetLeft);
+		console.log('scrollLeft: '+txdiv.scrollLeft);
+	</script>
+</body>
+</html>

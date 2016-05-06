@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test :after and :before</title>
+</head>
+<style>
+.div{width:350px; border:1px solid #000; line-height:50px; margin:10px;}
+.divb{width:500px; border:1px solid #FC0;}
+.after,.before,.block{border:1px solid #330;}
+.after:after{content:'我在后面吧'; color:#F00;}
+.before:before{content:'我在前面吧'; color:#F00;}
+.block:after{content:'我是块元素，我占一行'; color:#F00; display:block;}
+.block{display:block;}
+</style>
+<body>
+<div class="div">after<span class="after">我是里面的内容</span></div>
+<div class="div">before<span class="before">我是里面的内容</span></div>
+<div class="divb">block<span class="block">我是里面的内容</span></div>
+</body>
+</html>

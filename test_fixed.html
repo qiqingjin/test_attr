@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test fixed</title>
+	<style>
+		.clearfix:before,.clearfix:after{
+			content:"";
+			display: table;
+		}
+		.clearfix:after{
+			clear:both;
+		}
+	</style>
+</head>
+<body>
+	<div style="border:2px solid blue; margin:100px;" >
+		<div style="background:red; position:fixed; margin:20px;">I am fixed</div>
+		<!-- <span style=" background:red;">I am fixed</span> -->
+		<!-- <div style="display:inline-block;position:absolute; background:green; margin-left:10px;">I am absolute</div> -->
+	</div>	
+
+
+	<div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">查询条件&nbsp;<span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#">姓名</a></li>
+          <li><a href="#">学部</a></li>
+          <li><a href="#">学院</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#">教工号</a></li>
+        </ul>
+      </div><!-- /btn-group -->
+      <input type="text" class="form-control" aria-label="...">
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+  <div class="col-lg-6">
+  	<div class="btn-group" role="group" aria-label="...">
+	  	<button type="button" class="btn btn-default" role="button">搜索人员</button>
+	  	<button type="button" class="btn btn-default" role="button">添加人员</button>
+	  	<button type="button" class="btn btn-default" role="button">新增人员</button>
+	</div>
+  </div>
+  
+									</div><!-- /.row -->
+									<div class="row"><br/><hr/><br/><br/><br/>
+
+<table class="table table-hover">
+
+<tr>
+  <th>选择</th>
+  <th>姓名</th>
+  <th>性别</th>
+  <th>学部</th>
+  <th>学院</th>
+  <th>组别</th>
+  <th>行程</th>
+  <th>详细信息</th>
+</tr>
+<tr>
+  <td><span class="checkbox"><label>
+  <input type="checkbox"></label></span></td>
+  <td>张三</td>
+  <td>男</td>
+  <td>管理与经济学部</td>
+  <td>管理学院</td>
+  <td>2</td>
+  <td>山东省</td>
+  <td><button class="btn btn-default resetbutton">详细信息</button></td>
+</tr>	
+<tr>
+  <td><span class="checkbox"><label>
+  <input type="checkbox"></label></span></td>
+  <td>...</td>
+  <td>...</td>
+  <td>...</td>
+  <td>...</td>
+  <td>...</td>
+  <td>...</td>
+  <td>...</td>
+</tr>									
+</table>
+
+  									</div><!-- /.row -->
+</body>
+</html>

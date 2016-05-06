@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES6</title>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+	<script>
+	//局部有效
+		/*{
+		  let a=1;
+		  var b=2;
+		}
+		console.log(a); //undefined
+		console.log(b); //2*/
+	//不存在变量提升
+		/*console.log(a);//ES6.html:17 Uncaught ReferenceError: a is not defined
+		console.log(b); //undefined
+		let a=1;
+		var b=2;*/
+	//暂时性死区
+		/*var a=1;
+		if(true){
+			a=2;
+			let a; //Uncaught ReferenceError: a is not defined
+		}*/
+	//Map数据结构
+		/*var m = new Map();
+		var ul = document.getElementsByTagName('ul');
+		m.set(ul,'hi');
+		console.log(m.get(ul)); //hi*/
+		/*var ul = document.getElementsByTagName('ul');
+		var li_1 = document.getElementsByTagName('li')[0];
+		var li_2 = document.getElementsByTagName('li')[1];
+		var list = [ [li_1,'hello'] , [li_2,'world'] ];
+		var m = new Map();
+		list.forEach( ([key,value]) => m.set(key,value) );
+		console.log( ...m ); //[li, "hello"] [li, "world"]*/
+		/*for ( let key of m.keys() ){
+			console.log(key);
+		}
+		for ( let val of m.values() ){
+			console.log(val);
+		}
+		for ( let item of m.entries() ){
+			console.log(item[0],item[1]);
+		}
+		for ( let [key,val] of m.entries() ){
+			console.log(key,val);
+		} 
+		m.forEach( function( val , key , ul ){
+			console.log( this ); //ul
+			console.log( val , key);
+		} , ul ); // forEach的第二个参数用于改变匿名函数中this指向*/
+	//Set数据结构
+		/*var s = new Set();
+		var ul = document.getElementsByTagName('ul');
+		[1,1,3,3,5,5].map( x => s.add(x) );
+		console.log(s); //Set {1, 3, 5}
+		var set = new Set( [2,2,4,4,6,6] ); //Set {2, 4, 6}
+		console.log(set);
+		for ( let key of s.keys() ){
+			console.log(key);
+		}
+		for ( let val of s.values() ){
+			console.log(val);
+		}
+		for ( let item of s.entries() ){
+			console.log(item[0],item[1]);
+		}
+		for ( let [key,val] of s.entries() ){
+			console.log(key,val);
+		} 
+		s.forEach( function( val , key , ul ){
+			console.log( this ); //ul
+			console.log( val , key);
+		} , ul ); */
+	//Proxy与Reflect
+		function LogMessage( m ){
+			this.m = m;
+		}
+		var message = new LogMessage( 1 );
+		var overload = new Proxy(message , {
+			get: function(target, key, receiver){
+				console.log(`getting ${key}`);
+				return Reflect.get(target , key , receiver);
+			},
+			set: function(target, key, value, receiver){
+				console.log(`setting ${key}`);
+				return Reflect.set(target, key, value, receiver);
+			}
+		});
+		overload.m = 2; //setting m
+		var s = overload.m; //getting m
+	</script>
+</body>
+</html>

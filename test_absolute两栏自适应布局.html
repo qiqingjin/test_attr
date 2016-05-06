@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test absolute 流体布局</title>
+	<style>
+	 .rightphoto{
+      float:left;
+    }
+   .leftdiv{
+      background-color: #DDD;
+      /*padding-left: 200px;*/
+      overflow: hidden;
+
+    }
+   .leftphoto{
+      line-height: 22px; 
+      padding-bottom: 6px; 
+      font-size: 14px;
+      
+    }
+    .leftp{
+      clear:both;
+    }
+	</style>
+</head>
+<body>
+  <!-- 左右和实际情况是反的，，，是我愚钝了 -->
+  <a href="#" class="rightphoto"><img src="P_00.jpg" alt="hello"/></a>
+  <div class="leftdiv">
+    <p class="leftp">12月25日为本月最后一个周五，按照惯例，图书馆将进行内部学习。12月25日（周五）下午闭馆，晚上5点照常开放，望广大师生读者周知。</p>
+    <img src="P_01.jpg" class="leftphoto" alt="hi"/>
+  </div>
+</body>
+</html>

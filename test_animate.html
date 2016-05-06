@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test Animate</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.button{
+			border:1px solid #64c878;
+			box-shadow: 0 1px 2px #b9ecc4 inset,0 -1px 0 #6c9f76 inset,0 -2px 3px #b9ecc4 inset;
+			background: -webkit-linear-gradient(top,#90dfa2,#84d494);
+			background: -moz-linear-gradient(top,#90dfa2,#84d494);
+			background: linear-gradient(top,#90dfa2,#84d494);
+			width: 140px;
+			line-height: 38px;
+			text-align: center;
+			font-weight: bold;
+			color: #fff;
+			text-shadow:1px 1px 1px #333;
+			border-radius: 5px;
+			margin:0 20px 20px 0;
+			position: relative;
+			overflow: hidden;
+		}
+		.control{
+			border:1px solid #AAA;
+			width :780px;
+			height:80px;
+			padding:20px;
+			line-height: 50px;
+			margin:0 auto;
+			text-align: center;
+		}
+		.content{
+			margin:0 auto;
+			width:800px;
+			border:1px solid #AAA;
+			padding:10px;
+		}
+		.content div:nth-child(2),.content div:nth-child(3),.content div:nth-child(4){
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="control">
+		<button type="button" class="button" id="sp2">Show:Paragraph 2</button>
+		<button type="button" class="button" id="sp23">Show:Paragraph 2&3</button>
+		<button type="button" class="button" id="hp2">Hide:Paragraph 2</button>
+		<button type="button" class="button" id="hp23">Hide:Paragraph 2&3</button>
+	</div>
+	<div class="content">
+
+		<div><h3>Introduction</h3><p>In addition to being useful for debugging your own code, Visual Event can be used as an educational tool, showing how many web-sites have been authored.</p></div>
+		<div><h3>How it works</h3><p>It turns out that there is no standard method provided by the W3C recommended DOM interface to find out what event listeners are attached to a particular element. While this may appear to be an oversight, there was a proposal to include a property called eventListenerList to the level 3 DOM specification, but was unfortunately been removed in later drafts. As such we are forced to looked at the individual Javascript libraries, which typically maintain a cache of attached events (so they can later be removed and perform other useful abstractions).</p></div>
+		<div><h3>How to get involved</h3><p>Visual Event is open source software and available under the GPL v2 license. Source control is done with Git, and the project has a page on GitHub. Any help with improvements and suggestions for Visual Event are very welcome indeed! If you hit a specific problem, then please open an issue on GitHub for the problem you are encountering, including a link to the page where the problem occurs. Forks and pull requests are also very much encouraged!</p></div>
+		<div><h3>Building Visual Event</h3><p>In order to run a local copy of Visual Event you must build it, since this process does file concatenation, which brings in the library parsers to the main file. The build process will also build the JSDoc documentation and compress the Javascript files (unless made with debug).</p></div>
+				
+	</div>
+
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('.content div').eq(0).show();
+			var p1=$('.content div').eq(0);
+			var p2=$('.content div').eq(1);			
+			var p3=$('.content div').eq(2);			
+			var p4=$('.content div').eq(3);	
+			var sp2=$('#sp2');
+			sp2.click(function(){
+				$('.content div').eq(1).animate({height:'toggle'},'slow').animate({opacity:'0.5'},{duration:'slow',complete:function(){
+					$('.content div').eq(2).animate({height:'toggle'},'slow').animate({opacity:'0.5'},'slow');
+				}});
+				
+			});
+			var sp23=$('#sp23');
+			sp23.click(function(){
+				$('.content div').eq(1).slideDown('slow').fadeIn('slow');
+			});
+			var hp2=$('#hp2');
+			var hp23=$('#hp23');
+			
+			// $('control').click(function(event){
+			// 	switch(event.target.id){
+			// 		case 'sp2':
+			// 		p2.animate
+			// 	}
+			// });		
+		});
+	</script>
+</body>
+</html>

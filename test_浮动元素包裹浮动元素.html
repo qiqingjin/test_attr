@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test float</title>
+	<style>
+	*{
+		padding:0;
+		margin:10 0px;
+
+	}
+	.uldiv li{
+		float:left;
+		width:24%;
+		border:1px solid blue;
+		list-style:none;
+	}
+	 .clearfix:after{
+		content:"";
+		display:block;
+		height:0;
+		overflow:hidden;
+		clear:both;
+	}
+	.clearfix{
+		*zoom:1;
+	}
+
+
+
+	
+
+	
+	
+
+
+	</style>
+</head>
+<body>
+	
+	<div style="width:1000px;  background-color:#ddd;" class="clearfix">
+	
+		<div style="border:1px solid red; float:left;width:50%;">
+			
+			<div style="border:1px solid green;" class="uldiv">
+				<ul style="border:2px solid yellow;" class="clearfix">
+					<li>nihao</li>
+					<li>nihao</li>
+					<li>nihao</li>
+					<li>nihao</li>
+					<li>nihao</li>
+					<li>nihao</li>
+					<li>nihao</li>
+					<li>nihao</li>
+					<li>nihao</li>
+					<li>nihao</li>
+					<li>nihao</li>
+					<li>nihao</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

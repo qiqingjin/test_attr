@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Test Array</title>
+</head>
+<body>
+	<script>
+		//字符串转驼峰标识
+		/*var foo = "hello-word-i-am-lee" ;
+		function toCamel ( str ) {
+			var arr = str.split ( '-' ) ;
+			var temp = [] ;
+			temp.push( arr[0].toLowerCase() );
+			for( var i = 1 ; i < arr.length ; i++ ){
+				temp.push( arr[i].charAt(0).toUpperCase() + arr[i].substr(1,arr[i].length-1) );
+			}
+			str = temp.join('');
+			return str;
+		}
+		console.log( toCamel(foo) );*/
+
+		//数组倒序输出
+		/*var arr = [3,6,1,8,3,4,2,9];
+		function reverseSort ( arr ) {
+			var temp = [],
+				len = arr.length;
+			for ( var i = 0; i < arr.length ; i++ ) {
+				temp.push( arr[len-i-1] );
+			}
+			return temp;
+		}
+		console.log( arr );
+		console.log( reverseSort( arr ) );*/
+
+		//降序排序
+		//var arr = [3,6,1,8,3,4,2,9];
+		//冒泡排序
+		/*function bubbleSort ( arr ) {
+			var len = arr.length ,
+				temp;
+			for ( var i = 0 ; i < len-1 ; i++ ) {
+				for ( var j = i+1 ; j < len ; j++) {
+					if ( arr[i] < arr[j]) {
+						temp = arr[i] ;
+						arr[i] = arr[j] ;
+						arr[j] = temp ;
+					}
+				}
+			}
+			return arr;
+		}
+		console.log( bubbleSort ( arr ) );*/
+		//快速排序
+		/*function quickSort ( arr ) {
+			if ( arr.length <= 1) {
+				return arr;
+			}
+			var keyIndex = Math.floor( arr.length/2 ) ,
+				keyNum = arr.splice( keyIndex , 1 )[0],
+				leftArr = [] ,
+				rightArr = [] ;
+			
+			for ( var i = 0 ; i < arr.length ; i++ ) {
+				if ( arr[i] > keyNum) {
+					leftArr.push ( arr[i] );
+				}else{
+					rightArr.push ( arr[i] );
+				}
+			}
+			return quickSort( leftArr ).concat( [keyNum] , quickSort( rightArr ) );
+		}
+		console.log( quickSort ( arr ) );*/
+
+		//输出今天的日期
+		/*var d = new Date() ;
+		var year = d.getFullYear() ;
+		var month = d.getMonth() + 1 < 10 ? '0' + ( d.getMonth() + 1 ) : d.getMonth() + 1;
+		var day = d.getDate() < 10 ? '0' + d.getDate() : d.getDate() ;
+		var date = year + '-' + month + '-' + day ;
+		console.log( date );
+		console.log( "星期"+d.getDay() );*/
+
+		
+	</script>
+</body>
+</html>
