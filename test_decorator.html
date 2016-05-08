@@ -8,7 +8,7 @@
 <body>
 	<script>
 	//常用实例 - 多重onload绑定
-		function addLoadEvent(fn) {
+		/*function addLoadEvent(fn) {
 		    var oldEvent = window.onload;
 		    if(typeof window.onload != 'function') {
 		        window.onload = fn;
@@ -30,7 +30,73 @@
 		}
 		addLoadEvent(fn1);
 		addLoadEvent(fn2);
-		addLoadEvent(fn3);
+		addLoadEvent(fn3);*/
+
+	//常用实例 - 前置/后置处理函数
+		/*Function.prototype.before = function(beforfunc) {
+		    var self = this;
+		    var outerArgs = Array.prototype.slice.call(arguments, 1);
+
+		    return function() {
+		    	var innerArgs = Array.prototype.slice.call(arguments);
+				var finalArgs = outerArgs.concat(innerArgs);
+
+		        beforfunc.apply(this, finalArgs);
+		        self.apply(this, finalArgs);
+		    };
+		};
+
+		Function.prototype.after = function(afterfunc) {
+		    var self = this;
+		    var outerArgs = Array.prototype.slice.call(arguments, 1);
+
+		    return function() {
+		    	var innerArgs = Array.prototype.slice.call(arguments);
+				var finalArgs = outerArgs.concat(innerArgs);
+
+
+		        self.apply(this, finalArgs);
+		        afterfunc.apply(this, finalArgs);
+		    };
+		};
+
+		var func = function(name){
+			console.log('I am ' + name);
+		};
+		var beforefunc = function(age){
+			console.log('I am ' + age + 'years old');
+		};
+		var afterfunc = function(gender){
+			console.log('I am a ' + gender);
+		};
+
+		func.before(beforefunc('12')).after(afterfunc('boy'));
+		func('A');*/
+
+	//常用实例 - 计算函数执行用时
+		function log(func){
+			return function(...args){
+				const start = Date.now();
+				let result = func(...args);
+				const used = Date.now() - start;
+				console.log(`call ${func.name} (${args}) used ${used} ms.`);
+				return result;
+			};
+		}
+
+		function calculate(times){
+			let sum = 0;
+			let i = 1;
+			while(i < times){
+				sum += i;
+				i++;
+			}
+			return sum;
+		}
+
+		runCalculate = log(calculate);
+		let result = runCalculate(100000);
+		console.log(result);
 	</script>
 </body>
 </html>
