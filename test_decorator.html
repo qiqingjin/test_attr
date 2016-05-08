@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>test decorator</title>
+</head>
+<body>
+	<script>
+	//常用实例 - 多重onload绑定
+		function addLoadEvent(fn) {
+		    var oldEvent = window.onload;
+		    if(typeof window.onload != 'function') {
+		        window.onload = fn;
+		    }else {
+		        window.onload = function() {
+		            oldEvent();
+		            fn();
+		        };
+		    }
+		}
+		function fn1() {
+		    console.log('onloadFunc 1');
+		}
+		function fn2() {
+		    console.log('onloadFunc 2');
+		}
+		function fn3() {
+		    console.log('onloadFunc 3');
+		}
+		addLoadEvent(fn1);
+		addLoadEvent(fn2);
+		addLoadEvent(fn3);
+	</script>
+</body>
+</html>
