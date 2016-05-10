@@ -8,7 +8,8 @@
 </head>
 <body>
 	<script>
-		(function(window, document) {
+	//格式化URL查询字符串
+		/*(function(window, document) {
 
 		    var UrlParas = function(url) {
 		        return UrlParas.fn.init(url);
@@ -128,10 +129,29 @@
 		console.log(urlParas(testUrl).set({
 		    zcsdf: "zcsdf",
 		    cesahi: "ceadasdads",
-		    lang: "zh-cn"
+		    lang: "zh-cn",
+		    hi: "你好"
 		}));
 		console.log(urlParas(testUrl).remove("lang,tt"));
-		console.log(urlParas(testUrl).pathname);
+		console.log(urlParas(testUrl).pathname);*/
+
+	//URL编码函数
+	var test = "你好";
+	console.log(escape(test)); //%u4F60%u597D
+
+	var test1 = "https://www.baidu.com/baidu?wd=你好";
+	console.log(encodeURI(test1)); //https://www.baidu.com/baidu?wd=%E4%BD%A0%E5%A5%BD
+	console.log(encodeURIComponent(test1)); //https%3A%2F%2Fwww.baidu.com%2Fbaidu%3Fwd%3D%E4%BD%A0%E5%A5%BD
+
+	function addURLParam(url, name, value){
+		url += (url.indexOf("?") == -1 ? "?" : "&");
+		url += encodeURIComponent(name) + "=" + encodeURIComponent(value);
+		return url;
+	}
+
+	var test2 = "https://www.baidu.com/baidu";
+	var encodeURL = addURLParam(test2, "键名", "123");
+	console.log(encodeURL); //
 	</script>
 </body>
 </html>
