@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>test bubble&capture</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<!-- <div>
+		<button>click me</button>
+	</div>
+	
+	<script>
+		var btn = document.querySelector('button');
+		var div = document.querySelector('div');
+		
+		btn.addEventListener('click', function(){
+			console.log('bubble','btn');
+		},false);
+		btn.addEventListener('click', function(){
+			console.log('capture','btn');
+		},true);
+	
+		div.addEventListener('click', function(){
+			console.log('bubble','div');
+		},false);
+		div.addEventListener('click', function(){
+			console.log('capture','div');
+		},true);
+	</script> -->
+
+		
+		<div>
+			<input type="text"/>
+			<button>submit</button>
+		</div>
+	<script>
+		var btn = document.querySelector('button');
+		var input = document.querySelector('input');
+		var div = document.querySelector('div');
+		
+		/*form.addEventListener('click',function(){
+			console.log('blur','form');
+		},false); //focus时候出现
+		input.addEventListener('blur', function(){
+			console.log('blur','input');
+		},true); //blur时候出现*/
+
+		
+		input.addEventListener('blur', function(){
+			console.log('input,blur');
+		}, true);
+		
+		div.addEventListener('blur', function(){
+			console.log('div,blur');
+		}, true);
+		div.addEventListener('click', function(){
+			console.log('div,click');
+		}, false);
+		btn.addEventListener('click',function(){
+			console.log('btn,click')
+		}, false)
+		
+	</script>
+</body>
+</html>
