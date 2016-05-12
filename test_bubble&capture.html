@@ -7,11 +7,12 @@
 	<link rel="stylesheet" href="">
 </head>
 <body>
-	<!-- <div>
+	<div>
 		<button>click me</button>
 	</div>
 	
 	<script>
+	//测试父元素与子元素分别绑定捕获阶段事件及冒泡阶段事件，事件的发生顺序
 		var btn = document.querySelector('button');
 		var div = document.querySelector('div');
 		
@@ -28,27 +29,30 @@
 		div.addEventListener('click', function(){
 			console.log('capture','div');
 		},true);
-	</script> -->
+	</script>
 
 		
-		<div>
+		<!-- <div>
 			<input type="text"/>
 			<button>submit</button>
+			<a href="https://www.baidu.com/">进入博客</a>
 		</div>
-	<script>
+			<script>
 		var btn = document.querySelector('button');
 		var input = document.querySelector('input');
 		var div = document.querySelector('div');
+		var a = document.querySelector('a');
 		
+		//测试blur与click事件发生顺序
 		/*form.addEventListener('click',function(){
 			console.log('blur','form');
 		},false); //focus时候出现
 		input.addEventListener('blur', function(){
 			console.log('blur','input');
 		},true); //blur时候出现*/
-
 		
-		input.addEventListener('blur', function(){
+		
+		/*input.addEventListener('blur', function(){
 			console.log('input,blur');
 		}, true);
 		
@@ -60,8 +64,22 @@
 		}, false);
 		btn.addEventListener('click',function(){
 			console.log('btn,click')
-		}, false)
+		}, false);*/
 		
-	</script>
+		//测试a上click与href发送顺序
+		a.addEventListener('click', function(){
+			console.log(input.value);
+			console.log(this.getAttribute('href'));
+			console.log(location.href);
+		}, false);
+		
+		//手动触发的事件
+		 var event = document.createEvent('HTMLEvents'); // initEvent接受3个参数: 事件类型，是否冒泡，是否阻止浏览器的默认行为
+		event.initEvent("click", true, true);    
+		event.eventType = 'click';
+		//触发a上绑定的自定义事件   
+		a.dispatchEvent(event);   
+		
+			</script> -->
 </body>
 </html>
