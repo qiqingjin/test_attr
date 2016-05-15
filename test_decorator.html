@@ -33,16 +33,15 @@
 		addLoadEvent(fn3);*/
 
 	//常用实例 - 前置/后置处理函数
-		/*Function.prototype.before = function(beforfunc) {
+		Function.prototype.before = function(beforfunc) {
 		    var self = this;
 		    var outerArgs = Array.prototype.slice.call(arguments, 1);
 
 		    return function() {
 		    	var innerArgs = Array.prototype.slice.call(arguments);
-				var finalArgs = outerArgs.concat(innerArgs);
 
-		        beforfunc.apply(this, finalArgs);
-		        self.apply(this, finalArgs);
+		        beforfunc.apply(this, innerArgs);
+		        self.apply(this, outerArgs);
 		    };
 		};
 
@@ -52,11 +51,9 @@
 
 		    return function() {
 		    	var innerArgs = Array.prototype.slice.call(arguments);
-				var finalArgs = outerArgs.concat(innerArgs);
 
-
-		        self.apply(this, finalArgs);
-		        afterfunc.apply(this, finalArgs);
+		        self.apply(this, outerArgs);
+		        afterfunc.apply(this, innerArgs);
 		    };
 		};
 
@@ -64,17 +61,20 @@
 			console.log('I am ' + name);
 		};
 		var beforefunc = function(age){
-			console.log('I am ' + age + 'years old');
+			console.log('I am ' + age + ' years old');
 		};
 		var afterfunc = function(gender){
 			console.log('I am a ' + gender);
 		};
 
-		func.before(beforefunc('12')).after(afterfunc('boy'));
-		func('A');*/
+		var beforeFunc = func.before(beforefunc, 'Andy');
+		var afterFunc = func.after(afterfunc, 'Andy');
+
+		beforeFunc('12');
+		afterFunc('boy');
 
 	//常用实例 - 计算函数执行用时
-		function log(func){
+		/*function log(func){
 			return function(...args){
 				const start = Date.now();
 				let result = func(...args);
@@ -96,7 +96,7 @@
 
 		runCalculate = log(calculate);
 		let result = runCalculate(100000);
-		console.log(result);
+		console.log(result);*/
 	</script>
 </body>
 </html>
