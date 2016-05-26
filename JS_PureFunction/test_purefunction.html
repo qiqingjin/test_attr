@@ -7,6 +7,76 @@
 	<link rel="stylesheet" href="">
 </head>
 <body>
-	
+	<script>
+	//slice与splice
+		/*var array1 = [0,1,2,3,4,5,6];
+		var array2 = [0,1,2,3,4,5,6];
+
+		var spliceArray = array1.splice(0,2);
+		var sliceArray = array2.slice(0,2);
+
+		console.log('array1: ' + array1);
+		console.log('spliceArray: ' + spliceArray);
+
+		console.log('array2: ' + array2);
+		console.log('sliceArray: ' + sliceArray); */
+
+	//演示非纯函数
+		/*function getName(obj){
+			return obj.name;
+		}
+		function getAge(obj){
+			return obj.age;
+		}
+		function selfIntroduction(people){
+			console.log(getName(people));
+			console.log(getAge(people));
+		}
+
+		var Lee = {
+			name: 'LYY',
+			age: 25
+		};
+
+		selfIntroduction(Lee);*/
+
+	//纯函数可以缓存
+		/*var memoize = function(f) {
+			var cache = {};
+
+		  	return function() {
+		    	var arg_str = JSON.stringify(arguments);
+		    	cache[arg_str] = cache[arg_str] ? cache[arg_str] + '(from cache)' : f.apply(f, arguments);
+		   	 	return cache[arg_str];
+		  	};
+		};
+
+		var squareNumber  = memoize(function(x){ return x*x; });
+
+		console.log(squareNumber(4));		
+		console.log(squareNumber(4)); 
+		console.log(squareNumber(5));
+		console.log(squareNumber(5)); */
+
+	//代码组合
+		var compose = function(f, g) {
+  			return function(x) {
+    			return f(g(x));
+  			};
+		};
+
+		function getPeople(){
+			return {};
+		}
+
+		function namePeople(p){
+			p.name = 'Lee';
+			return p;
+		}
+
+		var definePeople = compose(namePeople, getPeople);
+		var people = definePeople();
+		console.log(people);
+	</script>
 </body>
 </html>
