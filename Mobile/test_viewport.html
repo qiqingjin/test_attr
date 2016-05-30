@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width">
+	<title>test viewport</title>
+	<style>
+		@media screen and (min-width: 960px) {
+		  body { background-color: blue; }
+		}
+
+		@media screen and (max-width: 960px) and (min-width: 500px) {
+		  body { background-color: red; }
+		}
+
+		@media screen and (max-width: 500px) {
+		  body { background-color: yellow; }
+		}
+	</style>
+</head>
+<body>
+	<p>提到响应式设计，大家首先想到的可能是 Bootstrap ， @media 。前者是一个响应式UI库，风格比较扁平化，类似的还有雅虎的Pure。@media是CSS3的属性，利用它可以在不依赖其他库的情况下实现响应式设计。</p>
+</body>
+<script>
+	var ratio = window.devicePixelRatio;
+	var layoutWidth = document.documentElement.clientWidth;
+	var visualWidth = window.innerWidth;
+	window.alert('devicePixelRatio: ' + ratio + ' || layout viewport: ' + layoutWidth + ' || visual viewport: ' + visualWidth);
+</script>
+</html>
