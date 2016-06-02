@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Main Domain</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<h1>This is the main domain</h1>
+	<div style="margin:0 20px;">
+		<textarea name="main" cols="80" rows="5"></textarea><br/>
+		<input type="button" value="send to iframe A"/>
+		<input type="button" value="send to iframe B"/>
+	</div>
+	<div style="float:left; margin:0 20px;">
+		<h3>iframe A</h3>
+		<iframe src="http://a.com:8090/subAdomain.html" frameborder="1" style="width:300px; height:300px;"></iframe>
+	</div>
+	<div style="float:left;">
+		<h3>iframe B</h3>
+		<iframe src="http://b.com:8090/subBdomain.html" frameborder="1" style="width:300px; height:300px;"></iframe>
+	</div>
+	<div style="float:left;">
+		<h5 id="received"></h5>
+	</div>
+	<script>
+		var received = document.querySelector('#received');
+		var sendToIframeA = document.querySelectorAll('input')[0];
+		var sendToIframeB = document.querySelectorAll('input')[1];
+		var iframeA = document.querySelectorAll('iframe')[0];
+		var iframeB = document.querySelectorAll('iframe')[1];
+
+		//receive message
+		function getMessage(e){
+			console.log('main received!');
+			received.innerHTML = 'Receive message from ' + e.origin + ', the data is ' + e.data;
+			e.source.postMessage('Received the message', e.origin);
+		}
+		window.addEventListener('message', getMessage, false);
+
+		//post message
+		sendToIframeA.addEventListener('click', function(){
+			var content = document.querySelector('textarea').value;
+			iframeA.contentWindow.postMessage(content, 'http://a.com:8090');
+		}, false);
+		sendToIframeB.addEventListener('click', function(){
+			var content = document.querySelector('textarea').value;
+			iframeB.contentWindow.postMessage(content, 'http://b.com:8090');
+		}, false);
+	</script>
+</body>
+</html>

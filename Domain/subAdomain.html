@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Domain A</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<h5>This is domain A</h5>
+	<textarea name="subA" cols="30" rows="10"></textarea>
+	<input type="button" value="send to parent"/>
+	<div style="float:left;">
+		<h5 id="received"></h5>
+	</div>
+	<script>
+		var send = document.querySelector('input');
+		var text = document.querySelector('textarea');
+		var received = document.querySelector('#received');
+
+		//receive message
+		function getMessage(e){
+			console.log('A received!');
+			received.innerHTML = 'Receive message from ' + e.origin + ', the data is ' + e.data;
+			//e.source.postMessage('Received the message', e.origin);
+		}
+		window.addEventListener('message', getMessage, false);
+
+		//post message
+		send.addEventListener('click', function(){
+			var content = text.value;
+			window.parent.postMessage(content, 'http://main.com:8090');
+		}, false);
+	</script>
+</body>
+</html>
