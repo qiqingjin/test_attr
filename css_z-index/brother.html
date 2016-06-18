@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>test z-index</title>
+	<style>
+		html{
+			padding: 200px;
+		}
+		div{
+			width: 200px;
+			height: 100px;
+			border: 5px solid silver;
+			position: absolute;
+		}
+		.father{
+			background-color: red;
+			z-index: 0;
+		}
+		.brother{
+			background-color: blue;
+			z-index: 1;
+		}
+		.son{
+			background-color: yellow;
+			z-index: 999;
+			width: 100px;
+			height: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">fahter box <div class="son">son box</div></div>
+	<div class="brother">brother box</div>
+</body>
+</html>
