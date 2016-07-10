@@ -16,26 +16,12 @@ var gen2 = function* (){
   console.log(r2.toString()); 
 };
 
-/*console.log('------------------run thunk-----------------');
-run(gen);*/
 console.log('------------------run co--------------------');
 console.log('-----------gen------------');
 co(gen);
 console.log('-----------gen2-----------');
 co(gen2);
 
-function run(fn) {
-  var gen = fn();
-
-  function next(err, data) {
-    var result = gen.next(data);
-    console.log('--------next in thunk----------');
-    if (result.done) return;
-    result.value(next);
-  }
-
-  next();
-}
 function thunkify(fn){
   return function(){
     var args = new Array(arguments.length);
