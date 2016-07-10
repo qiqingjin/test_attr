@@ -9,11 +9,20 @@ var gen = function* (){
   var r2 = yield readFile('./hello.txt');
   console.log(r2.toString());
 };
+var gen2 = function* (){
+  var r1 = yield 1;
+  console.log(r1.toString());
+  var r2 = yield 2;
+  console.log(r2.toString()); 
+};
 
-console.log('------------------run thunk-----------------');
-run(gen);
-/*console.log('------------------run co--------------------');
-co(gen);*/
+/*console.log('------------------run thunk-----------------');
+run(gen);*/
+console.log('------------------run co--------------------');
+console.log('-----------gen------------');
+co(gen);
+console.log('-----------gen2-----------');
+co(gen2);
 
 function run(fn) {
   var gen = fn();
