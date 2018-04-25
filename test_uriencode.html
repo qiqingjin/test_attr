@@ -60,9 +60,8 @@
 		            if (arguments.length == 2) {
 		                name = arguments[0];
 		                val = arguments[1];
-		                option = {
-		                    name: val
-		                };
+		                option = {};
+				option[name] = val;
 		            }
 		            if ("string" === typeof option) {
 		                this.paras[option] = "";
